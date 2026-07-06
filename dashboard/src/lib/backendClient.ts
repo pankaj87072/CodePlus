@@ -8,7 +8,7 @@
  * -----------------------------------------------------------------------
  */
 
-const BACKEND_BASE_URL = "http://localhost:8000";
+const BACKEND_BASE_URL = import.meta.env.VITE_API_URL;
 
 async function backendGet<T>(token: string, path: string): Promise<T> {
   const res = await fetch(`${BACKEND_BASE_URL}${path}`, {
