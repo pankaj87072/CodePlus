@@ -10,7 +10,7 @@ class SubmissionIn(BaseModel):
     status: str
     solve_time_seconds: int
     language: str
-    source_code: str
+    # source_code: str
     runtime: str | None = None
     memory: str | None = None
     estimated_time_used: int | None = None
