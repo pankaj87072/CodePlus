@@ -1,0 +1,16 @@
+{
+  "name": "codepulse-extension",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "CodePulse - LeetCode floating timer + GitHub submission tracker (Manifest V3, plain HTML/CSS/TS, no frameworks)",
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "esbuild": "^0.21.0",
+    "typescript": "^5.4.0"
+  }
+}

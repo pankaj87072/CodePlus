@@ -1,0 +1,14 @@
+node_modules/
+dist/
+build/
+*.log
+.DS_Store
+extension/dist/
+extension/popup/popup.js
+extension/popup/popup.js.map
+dashboard/dist/
+dashboard/tsconfig.tsbuildinfo
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+.env
