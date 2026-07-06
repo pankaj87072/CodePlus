@@ -69,7 +69,6 @@ async function fetchSupabaseUser(accessToken: string): Promise<AuthUser> {
 
 async function signInWithGoogle(): Promise<Session> {
   const redirectUrl = chrome.identity.getRedirectURL();
-  console.log('redirecturl'),redirectUrl
   const authUrl =
     `${SUPABASE_URL}/auth/v1/authorize?provider=google` +
     `&redirect_to=${encodeURIComponent(redirectUrl)}`;
@@ -82,7 +81,6 @@ async function signInWithGoogle(): Promise<Session> {
   if (!fragment.access_token || !fragment.refresh_token) {
     throw new Error("Supabase did not return a session. Check your OAuth redirect URL configuration.");
   }
-  console.log('fragments',fragment)
 
   const expiresAt = Date.now() + Number(fragment.expires_in ?? "3600") * 1000;
   const user = await fetchSupabaseUser(fragment.access_token);
@@ -92,7 +90,6 @@ async function signInWithGoogle(): Promise<Session> {
     expiresAt,
     user,
   };
-  console.log('seassion',session)
 
   await setSession(session);
   // Confirm the session with our own backend right away - this both
@@ -142,7 +139,6 @@ async function getValidAccessToken(): Promise<string | null> {
 async function backendFetch(path: string, init: RequestInit = {}, isRetry = false): Promise<Response> {
   const token = await getValidAccessToken();
   if (!token) throw new Error("Not signed in.");
-  console.log('backen url',BACKEND_BASE_URL)
   const res = await fetch(`${BACKEND_BASE_URL}${path}`, {
     ...init,
     headers: {
@@ -151,7 +147,6 @@ async function backendFetch(path: string, init: RequestInit = {}, isRetry = fals
       ...init.headers,
     },
   });
-  console.log('res',res)
 
   // One retry after a forced refresh, in case the token expired right at
   // the edge of our skew window.
@@ -188,7 +183,6 @@ async function setTimerEnabled(enabled: boolean): Promise<void> {
 async function getTimerTarget(slug: string): Promise<TimerTarget | null> {
   try {
     const res = await backendFetch(`/problems/${encodeURIComponent(slug)}/timer`);
-    console.log('get time',res)
     if (!res.ok) return null;
     const data = await res.json();
     return { min: data.min, avg: data.avg, max: data.max, source: data.source, basisLabel: data.basis_label };

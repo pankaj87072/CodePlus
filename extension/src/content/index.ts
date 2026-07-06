@@ -155,9 +155,11 @@ class CodePulseController {
       memory,
       estimatedTimeUsed: this.currentTarget?.avg,
     };
+    console.log('record',record)
 
     // Requirement: record EVERY submission, not just Accepted.
     const result = await recordSubmission(record);
+    console.log('result',result)
     if (!result?.ok) {
       console.warn("[CodePulse] Failed to record submission:", result?.error);
     }
