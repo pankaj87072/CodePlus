@@ -29,7 +29,7 @@ class Submission(Base):
     status: Mapped[str] = mapped_column(String, index=True)  # "Accepted", "Wrong Answer", "TLE", ...
     solve_time_seconds: Mapped[int] = mapped_column(Integer)
     language: Mapped[str] = mapped_column(String)
-    source_code: Mapped[str] = mapped_column(Text, nullable=True)
+    # source_code: Mapped[str] = mapped_column(Text, nullable=True)
 
     runtime: Mapped[str | None] = mapped_column(String, nullable=True)
     memory: Mapped[str | None] = mapped_column(String, nullable=True)

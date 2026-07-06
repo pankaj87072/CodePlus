@@ -200,7 +200,7 @@ async function recordSubmission(record: SubmissionRecord): Promise<{ ok: boolean
         status: record.status,
         solve_time_seconds: record.timeTaken,
         language: record.language,
-        source_code: record.code,
+        // source_code: record.code,
         runtime: record.runtime ?? null,
         memory: record.memory ?? null,
         estimated_time_used: record.estimatedTimeUsed ?? null,
