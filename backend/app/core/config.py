@@ -26,7 +26,7 @@ class Settings(BaseSettings):
     SUPABASE_JWT_SECRET: str
 
     # Comma-separated list of allowed CORS origins (extension + dashboard).
-    CORS_ORIGINS: str = "http://localhost:5173,https://codeplus-1.onrender.com"
+    CORS_ORIGINS: str = "http://localhost:5173,https://codeplus-1.onrender.com,chrome-extension://mnghbggkdbmhpmmdpncgkodelekghgcf"
 
     ENVIRONMENT: str = "development"
 

@@ -17,7 +17,7 @@ export const SUPABASE_URL = "https://sgebiumeiuixmrxkurec.supabase.co";
 export const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNnZWJpdW1laXVpeG1yeGt1cmVjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxMzA3OTcsImV4cCI6MjA5ODcwNjc5N30.MVtHgWpMHRSY3EC8Y5yLTUsGflJOCyDp_mng2wxH7iI";
 
 // Your FastAPI backend. Point this at your deployed backend in production.
-export const BACKEND_BASE_URL = "http://localhost:8000";
+export const BACKEND_BASE_URL = "https://codeplus-gc3w.onrender.com";
 
 export const STORAGE_KEYS = {
   SESSION: "cp_session", // Session (access/refresh token + user)
